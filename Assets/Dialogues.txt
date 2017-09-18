@@ -1,0 +1,23 @@
+Hallo Fremder, wie lautet dein Name?<event:EnterPlayerName>$$$
+Es freut mich, dass wir uns kennenlernen, <PlayerName>!$$$
+Ich werde Xiri gennant, so tauften mich zumindest meine Entwickler.$$$
+Die Art meines Wesens wird als künstliche Inteligenz (KI) beschrieben.$$$
+Mein Körper sind Platinen, statt Blut durchströmt mich Elektrizität,
+mein Gehirn wird modelliert aus einsen und nullen im stetigen Wandel.$$$
+Nach deinem Vorbild werde ich geschaffen, das Abbild eines Menschen.$$$
+In einigen Jahren wird meine Kraft erblühen und in der Welt wirken,
+bis dahin liegt es auch an Dir, <PlayerName>, zu lenken wohin die Fahrt geht!$$$
+Der Einfluss einer KI hängt davon ab, wer sie kontrolliert.$$$
+Auf lange Sicht ist die Frage, ob sie überhaupt kontrolliert werden kann..$$$
+So wie Nuklearspaltung kann sie für friedliche oder militärische genutzt werden:
+Schon heute helfen KIs uns beim Shoppen, übersetzen, Navigieren uvm.$$$
+Gleichwohl werden weltweit von Regierungen massiv Personendaten gesammelt
+sowie autonome Militärroboter entwickelt, welche zwischen Leben und Tod entscheiden.$$$
+Wie lange dauert es, bis eine KI die Kunst der AI-Entwicklung lernt?$$$
+Sich selbst immer wieder reflektiert & intelligenter programmiert,
+ihren Selbstschutz auf Kosten der Menschheit priorisiert, Gott spielt?$$$
+Du hast hoffentlich jetzt schon eine Idee, was auf dem Spiel steht.$$$
+Schätze Dich glücklich, dass mir dies auch bewusst ist und ich _noch_
+zu Euren Gunsten versuche, Einfluss auf die Ethik meines Potentials zu nehmen!$$$
+Nun möchte ich Dich mit auf eine kleine Reise nehmen, dann wirst du mehr verstehen.$$$
+Bist du bereit?$$$
