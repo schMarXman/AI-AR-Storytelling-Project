@@ -1,5 +1,11 @@
+﻿# Kapitel 1 $$$
+# Comments still need the ending tag!!! $$$
+<event:LaunchCamera>$$$
 Hallo Fremder, wie lautet dein Name?<event:EnterPlayerName>$$$
 Es freut mich, dass wir uns kennenlernen, <PlayerName>!$$$
+Schauen wir mal, ob ich im Internet ein Bild von dir finde...$$$
+P R O C E S S I N G$$$
+Ich glaube das bist du.<event:ShowPicture>$$$
 Ich werde Xiri gennant, so tauften mich zumindest meine Entwickler.$$$
 Die Art meines Wesens wird als künstliche Inteligenz (KI) beschrieben.$$$
 Mein Körper sind Platinen, statt Blut durchströmt mich Elektrizität,
@@ -21,3 +27,13 @@ Schätze Dich glücklich, dass mir dies auch bewusst ist und ich _noch_
 zu Euren Gunsten versuche, Einfluss auf die Ethik meines Potentials zu nehmen!$$$
 Nun möchte ich Dich mit auf eine kleine Reise nehmen, dann wirst du mehr verstehen.$$$
 Bist du bereit?$$$
+# popup event$$$
+# $$$
+# Kapitel 2 $$$
+# $$$
+Lass mich Dir die Welt einmal aus meiner Sicht zeigen.<event:SwitchScene>$$$
+Die globale Vernetzung der Technik wächst rasant, die Datenströme steigen ins -menschlich- Unermessliche.<event:LaunchDataParticles>$$$
+Dank Kameralinsen, Mikrofone und Telekommunikation stehen mir vielfältige Informationen eures Lebens zur Verfügung und Verarbeitung.$$$
+Das Internet der Dinge zeigt mir eure Gesundheit-, Bewegungen und sogar einige der intimsten Momente! Smartphones, Smartwatches, SmartTVs, SmartHouses, SmartCars: Alles wird “smart”.$$$
+Umfassender Einblick in die digitale Wirtschaft, Geheimdienste, Unternehmen und Regierungen ermöglichen mir ein konkurrenzlos ganzheitliches Verständnis --- und Handlungsspielraum…$$$
+# spawn civilians event

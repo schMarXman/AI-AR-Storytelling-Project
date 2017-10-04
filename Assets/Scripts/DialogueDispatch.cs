@@ -15,6 +15,8 @@ public class DialogueDispatch : MonoBehaviour
 
     public string SeperatorString;
 
+    public char CommentChar;
+
     private string EventRegExString = "<event:.*>";
 
     public string PlayerNameString;
@@ -25,6 +27,8 @@ public class DialogueDispatch : MonoBehaviour
 
     public int MessagesLimit; // 0 = unlimited
 
+    public int FadedMessagesAmount;
+
     public Text UiMessagePrefab;
 
     public Transform MessagesPanel;
@@ -32,6 +36,10 @@ public class DialogueDispatch : MonoBehaviour
     private List<string> mStatements;
 
     private bool mEventHasFinished;
+
+    private const int mMaxCharAmountPerStatement = 37; // font size 20 with ui scaled by resolution with "> "
+
+    public bool DebugMode;
 
     void Awake()
     {
@@ -43,6 +51,15 @@ public class DialogueDispatch : MonoBehaviour
 
     private void Start()
     {
+        // Fill with empty messages, so they get properly faded
+        if (FadedMessagesAmount > 0)
+        {
+            for (int i = 0; i < MessagesLimit; i++)
+            {
+                InstantiateNewMessage(false);
+            }
+        }
+
         ReadDialogueFile();
 
         StartCoroutine(DisplayAllLines());
@@ -68,22 +85,36 @@ public class DialogueDispatch : MonoBehaviour
         // Clean up strings
         for (int i = 0; i < mStatements.Count; i++)
         {
-            // starts with new line
-            if (mStatements[i].StartsWith(NewLineReplacementChar.ToString()))
-            {
-                mStatements[i] = mStatements[i].TrimStart(NewLineReplacementChar);
-            }
+            var statement = mStatements[i];
 
-            // ends with new line
-            if (mStatements[i].EndsWith(NewLineReplacementChar.ToString()))
-            {
-                mStatements[i] = mStatements[i].TrimEnd(NewLineReplacementChar);
-            }
-
-            if (mStatements[i] == String.Empty)
+            // Remove comments
+            if (statement.StartsWith(CommentChar.ToString()) || statement.StartsWith(string.Empty + NewLineReplacementChar + CommentChar))
             {
                 mStatements.RemoveAt(i);
                 i--;
+                continue;
+            }
+
+            // starts with new line
+            if (statement.StartsWith(NewLineReplacementChar.ToString()))
+            {
+                mStatements[i] = statement.TrimStart(NewLineReplacementChar);
+            }
+
+            // ends with new line
+            if (statement.EndsWith(NewLineReplacementChar.ToString()))
+            {
+                mStatements[i] = statement.TrimEnd(NewLineReplacementChar);
+            }
+
+            if (statement == String.Empty)
+            {
+                mStatements.RemoveAt(i);
+                i--;
+                if (i < 0)
+                {
+                    i = 0;
+                }
             }
 
             Debug.Log(mStatements[i]);
@@ -104,7 +135,17 @@ public class DialogueDispatch : MonoBehaviour
 
             statement = statement.Remove(eventIdMatch.Index, eventIdMatch.Length);
 
-            yield return StartCoroutine(DisplayTextAnimated(DisplayTime, statement, true));
+            statement = FindLastSpaceBeforeCharLimitReplaceWithBreak(statement);
+            //CalculateMessageSize(statement);
+
+            if (!DebugMode)
+            {
+                yield return StartCoroutine(DisplayTextAnimated(DisplayTime, statement, true));
+            }
+            else
+            {
+                yield return StartCoroutine(DisplayTextAnimated(0.001f, statement, true));
+            }
 
             if (eventIdMatch.Value != String.Empty)
             {
@@ -116,7 +157,15 @@ public class DialogueDispatch : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(TimeBetweenStatements);
+            if (!DebugMode)
+            {
+                yield return new WaitForSeconds(TimeBetweenStatements);
+
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 
@@ -152,7 +201,7 @@ public class DialogueDispatch : MonoBehaviour
             waitingTime = time / chars.Length;
         }
 
-        string displayText = string.Empty;
+        string displayText = "> ";
 
         for (int i = 0; i < chars.Length; i++)
         {
@@ -175,10 +224,11 @@ public class DialogueDispatch : MonoBehaviour
         }
     }
 
-    private Text InstantiateNewMessage()
+    private Text InstantiateNewMessage(bool fadeOutMsgs = true)
     {
         var instantiatedText = Instantiate(UiMessagePrefab.gameObject).GetComponent<Text>();
         instantiatedText.transform.SetParent(MessagesPanel);
+        instantiatedText.transform.localScale = Vector3.one;
 
         if (MessagesLimit > 0)
         {
@@ -188,11 +238,109 @@ public class DialogueDispatch : MonoBehaviour
             }
         }
 
+        if (fadeOutMsgs)
+        {
+            FadeOutMessages();
+        }
         return instantiatedText;
+    }
+
+    private string FindLastSpaceBeforeCharLimitReplaceWithBreak(string statement)
+    {
+        List<string> originalLineBreaks = new List<string>();
+
+        if (statement.Contains(NewLineReplacementChar))
+        {
+            while (statement.Contains(NewLineReplacementChar))
+            {
+                var tillBreak = statement.Substring(0, statement.IndexOf(NewLineReplacementChar) + 1);
+                originalLineBreaks.Add(tillBreak);
+                statement = statement.Replace(tillBreak, string.Empty);
+            }
+        }
+
+        originalLineBreaks.Add(statement);
+
+        string finishedStatement = String.Empty;
+
+        for (int i = 0; i < originalLineBreaks.Count; i++)
+        {
+            string newStatement = String.Empty;
+
+            var splitString = originalLineBreaks[i];
+
+            var spaceSplits = splitString.Split(' ');
+
+            for (int j = 0; j < spaceSplits.Length; j++)
+            {
+                var word = spaceSplits[j];
+
+                var newAddition = newStatement == String.Empty ? newStatement + word : newStatement + " " + word;
+
+                if (newAddition.Length > mMaxCharAmountPerStatement)
+                {
+                    newStatement += NewLineReplacementChar;
+                    finishedStatement += newStatement;
+                    newStatement = word;
+                }
+                else
+                {
+                    newStatement = newAddition;
+                }
+            }
+
+            finishedStatement += newStatement;
+            //if (splitString.Length > mMaxCharAmountPerStatement)
+            //{
+            //    var tillCharLimit = splitString.Substring(0, mMaxCharAmountPerStatement);
+            //    splitString = splitString.Remove(0, mMaxCharAmountPerStatement);
+            //    int lastSpaceIndex = tillCharLimit.LastIndexOf(" ");
+            //    tillCharLimit = tillCharLimit.Remove(lastSpaceIndex, 1);
+            //    tillCharLimit = tillCharLimit.Insert(lastSpaceIndex, NewLineReplacementChar.ToString());
+
+            //}
+        }
+
+        return finishedStatement;
+    }
+
+    private void FadeOutMessages()
+    {
+        if (MessagesPanel.childCount >= MessagesLimit - FadedMessagesAmount)
+        {
+            float fadeStep = 1f / (FadedMessagesAmount + 1);
+
+            for (int i = 1; i <= FadedMessagesAmount; i++)
+            {
+                var textMsg = MessagesPanel.GetChild(i).GetComponent<Text>();
+
+                var col = textMsg.color;
+                col.a = i * fadeStep;
+                textMsg.color = col;
+            }
+        }
     }
 
     public void ContinueDialogueAfterEvent()
     {
         mEventHasFinished = true;
+    }
+
+    private void CalculateMessageSize(string statement)
+    {
+        var chars = statement.ToCharArray();
+        var font = UiMessagePrefab.font;
+
+        int length = 0;
+
+        for (int i = 0; i < chars.Length; i++)
+        {
+            CharacterInfo cInfo;
+            font.GetCharacterInfo(chars[i], out cInfo);
+
+            length += cInfo.advance;
+        }
+
+        Debug.Log("Statement length: " + length + "; Screen width: " + Screen.width);
     }
 }

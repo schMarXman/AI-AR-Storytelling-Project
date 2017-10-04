@@ -12,10 +12,14 @@ public class GameEvent : MonoBehaviour
 
     public UnityEvent OnEventTriggered;
 
+    public bool EndEventImmediately;
+
     public UnityEvent OnEventEnded;
 
     void Awake()
     {
+        DontDestroyOnLoad(transform.parent);
+
         GameEvents.Add(this);
         OnEventEnded.AddListener(ContinueDialogue);
     }
@@ -57,6 +61,11 @@ public class GameEvent : MonoBehaviour
     public void Trigger()
     {
         OnEventTriggered.Invoke();
+
+        if (EndEventImmediately)
+        {
+            End();
+        }
     }
 
     public void End()
