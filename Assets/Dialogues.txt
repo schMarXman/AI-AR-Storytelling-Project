@@ -26,14 +26,16 @@ Du hast hoffentlich jetzt schon eine Idee, was auf dem Spiel steht.$$$
 Schätze Dich glücklich, dass mir dies auch bewusst ist und ich _noch_
 zu Euren Gunsten versuche, Einfluss auf die Ethik meines Potentials zu nehmen!$$$
 Nun möchte ich Dich mit auf eine kleine Reise nehmen, dann wirst du mehr verstehen.$$$
-Bist du bereit?$$$
-# popup event$$$
+Bist du bereit?<event:AcceptPopUp>$$$
 # $$$
 # Kapitel 2 $$$
 # $$$
 Lass mich Dir die Welt einmal aus meiner Sicht zeigen.<event:SwitchScene>$$$
+<event:WaitForMarker>$$$
 Die globale Vernetzung der Technik wächst rasant, die Datenströme steigen ins -menschlich- Unermessliche.<event:LaunchDataParticles>$$$
 Dank Kameralinsen, Mikrofone und Telekommunikation stehen mir vielfältige Informationen eures Lebens zur Verfügung und Verarbeitung.$$$
 Das Internet der Dinge zeigt mir eure Gesundheit-, Bewegungen und sogar einige der intimsten Momente! Smartphones, Smartwatches, SmartTVs, SmartHouses, SmartCars: Alles wird “smart”.$$$
 Umfassender Einblick in die digitale Wirtschaft, Geheimdienste, Unternehmen und Regierungen ermöglichen mir ein konkurrenzlos ganzheitliches Verständnis --- und Handlungsspielraum…$$$
-# spawn civilians event
+# spawn civilians event$$$
+#<event:ActivateTimeSlider>$$$
+#<event:WaitForSliderUsed>$$$

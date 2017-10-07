@@ -8,6 +8,10 @@ public class UiHandler : MonoBehaviour
     public static UiHandler Instance;
 
     [SerializeField] private GameObject PlayerNameInputPopUp;
+    [SerializeField] private GameObject ReadyPopUp;
+    [SerializeField] private GameObject PlaceMarkerARAlertLabel;
+    [SerializeField] private GameObject BackgroundImage;
+    [SerializeField] private GameObject BackgroundFade;
     [SerializeField] private InputField PlayerNameInputField;
     [SerializeField] private RawImage CameraPictureTaken;
 
@@ -25,6 +29,11 @@ public class UiHandler : MonoBehaviour
         PlayerNameInputPopUp.SetActive(state);
     }
 
+    public void SetPlaceMarkerLabelActive(bool state)
+    {
+        PlaceMarkerARAlertLabel.gameObject.SetActive(state);
+    }
+
     public void AcceptPlayerName()
     {
         GameDirector.Instance.PlayerName = PlayerNameInputField.text;
@@ -34,6 +43,13 @@ public class UiHandler : MonoBehaviour
         CameraHandler.Instance.StopCamera();
 
         GameEvent.EndEventById("EnterPlayerName");
+    }
+
+    public void AcceptReadyPopUp()
+    {
+        ReadyPopUp.gameObject.SetActive(false);
+
+        GameEvent.EndEventById("AcceptPopUp");
     }
 
     public void ShowTakenPicture(bool state)
@@ -56,8 +72,22 @@ public class UiHandler : MonoBehaviour
 
     }
 
+    public void SetBackgroundActive(bool state)
+    {
+        BackgroundImage.SetActive(state);
+        BackgroundFade.SetActive(state);
+    }
+
     public void FadeUiElement(Graphic graphic, bool show, float duration)
     {
         graphic.CrossFadeAlpha(show ? 1f : 0f, duration, false);
+    }
+
+    public void SetTimeSliderActive(bool state)
+    {
+        if (ARSceneObjectHelper.Instance != null)
+        {
+            ARSceneObjectHelper.Instance.TimeSlider.SetActive(state);
+        }
     }
 }

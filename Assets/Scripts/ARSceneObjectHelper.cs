@@ -7,11 +7,15 @@ public class ARSceneObjectHelper : MonoBehaviour
     public static ARSceneObjectHelper Instance;
 
     public GameObject DataParticles;
+    public GameObject TimeSlider;
 
     void Awake()
     {
         Instance = this;
     }
 
-
+    public void SliderUsed()
+    {
+        GameEvent.EndEventById("WaitForSliderUsed", true);
+    }
 }

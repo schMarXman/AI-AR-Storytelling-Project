@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class ObjectSelector : MonoBehaviour
 {
+    public static ObjectSelector Instance;
+
     private bool mEnabled = true;
 
-    private Camera mCam;
+    public Camera AttachedCamera { get; private set; }
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {
-        mCam = GetComponent<Camera>();
+        AttachedCamera = GetComponent<Camera>();
 
-        if (mCam==null)
+        if (AttachedCamera == null)
         {
-            mCam = GetComponentInChildren<Camera>();
+            AttachedCamera = GetComponentInChildren<Camera>();
         }
     }
 
@@ -35,20 +45,19 @@ public class ObjectSelector : MonoBehaviour
                 {
                     Raycast(Input.mousePosition);
                 }
-            } 
+            }
         }
     }
 
     void Raycast(Vector3 screenPositon)
     {
         RaycastHit hitInfo = new RaycastHit();
-        bool hit = Physics.Raycast(mCam.ScreenPointToRay(screenPositon), out hitInfo);
+        bool hit = Physics.Raycast(AttachedCamera.ScreenPointToRay(screenPositon), out hitInfo);
 
-        var selectable = hitInfo.transform.GetComponent<SelectableObject>();
-        if (hit &&  selectable != null)
+        if (hit && hitInfo.transform.GetComponent<SelectableObject>())
         {
             Debug.Log("Object hit");
-            selectable.Select();
+            hitInfo.transform.GetComponent<SelectableObject>().Select();
         }
     }
 }

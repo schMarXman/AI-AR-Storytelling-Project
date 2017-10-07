@@ -42,6 +42,9 @@ public class GameDirector : MonoBehaviour
     public void LoadArScene()
     {
         SceneManager.LoadScene("arscene", LoadSceneMode.Additive);
+
+        UiHandler.Instance.SetBackgroundActive(false);
+
         GameEvent.EndEventById("SwitchScene");
     }
 

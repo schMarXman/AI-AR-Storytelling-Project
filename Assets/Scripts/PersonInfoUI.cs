@@ -6,11 +6,23 @@ using UnityEngine.UI;
 
 public class PersonInfoUI : MonoBehaviour
 {
+    [HideInInspector]
     public Transform Target;
 
     public Text Label;
 
+    public Image TextPanel;
+
+    public Vector3 Offset;
+
     private SelectableInformationDatabase.PersonData mData;
+
+    private Camera mSelectorCamera;
+
+    void Start()
+    {
+        mSelectorCamera = ObjectSelector.Instance.AttachedCamera;
+    }
 
     public void SetPerson(SelectableInformationDatabase.PersonData data)
     {
@@ -31,7 +43,7 @@ public class PersonInfoUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Target.position;
-        transform.LookAt(Camera.main.transform);
+        TextPanel.transform.position = mSelectorCamera.WorldToScreenPoint(Target.position) + Offset;
+        //transform.LookAt(Camera.main.transform);
     }
 }

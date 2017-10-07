@@ -16,7 +16,7 @@ public class RotateObjectAround : MonoBehaviour
     {
         while (true)
         {
-            transform.RotateAround(Target.transform.position, Vector3.right, MovementSpeed * Time.deltaTime);
+            transform.RotateAround(Target.transform.position, Vector3.up, MovementSpeed * Time.deltaTime);
             yield return null; 
         }
     }

@@ -26,10 +26,11 @@ namespace Vuforia.EditorClasses
         public Stream UnzipFile(string path, string fileNameinZip)
         {
     #if !EXCLUDE_JAVASCRIPT
-            return Unzip.Unzip(path, fileNameinZip);
+            //return Unzip.Unzip(path, fileNameinZip);
     #else
             return null;
     #endif
+            return null;
         }
     }
 }

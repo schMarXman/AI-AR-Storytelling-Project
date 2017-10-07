@@ -16,6 +16,9 @@ public class GameEvent : MonoBehaviour
 
     public UnityEvent OnEventEnded;
 
+    [HideInInspector]
+    public bool IsActive { get; private set; }
+
     void Awake()
     {
         DontDestroyOnLoad(transform.parent);
@@ -31,11 +34,11 @@ public class GameEvent : MonoBehaviour
         gameEvent.Trigger();
     }
 
-    public static void EndEventById(string id)
+    public static void EndEventById(string id, bool onlyEndIfActive = false)
     {
         var gameEvent = GetEventById(id);
 
-        gameEvent.End();
+        gameEvent.End(onlyEndIfActive);
     }
 
     public static GameEvent GetEventById(string id)
@@ -60,6 +63,8 @@ public class GameEvent : MonoBehaviour
 
     public void Trigger()
     {
+        IsActive = true;
+
         OnEventTriggered.Invoke();
 
         if (EndEventImmediately)
@@ -68,9 +73,15 @@ public class GameEvent : MonoBehaviour
         }
     }
 
-    public void End()
+    public void End(bool onlyEndIfActive = false)
     {
+        if (onlyEndIfActive && !IsActive)
+        {
+            return;
+        }
+
         OnEventEnded.Invoke();
+        IsActive = false;
     }
 
     private void ContinueDialogue()
