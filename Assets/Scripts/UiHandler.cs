@@ -44,6 +44,11 @@ public class UiHandler : MonoBehaviour
         CameraHandler.Instance.TakePicture();
         CameraHandler.Instance.StopCamera();
 
+        if (GameDirector.Instance.PlayerName == "debug")
+        {
+            DialogueDispatch.Instance.DebugMode = true;
+        }
+
         GameEvent.EndEventById("EnterPlayerName");
     }
 

@@ -86,4 +86,13 @@ Transparenz und ethische Regeln entscheiden über Leben und Tod.$$$
 2. Oder aber ein ausreichender Teil der Menschheit wacht auf.$$$
 Beginnt nachhaltig zu handeln, wird aktiv und gestaltet neue Politik sowie ökologisch soziale Permakulturen.$$$
 Zukünftige, fortschrittlich erneuerbare Energietechnik ist ebenso bedeutend und überfällig wie eine Deindustrialisierung der Wirtschaft.$$$
-Welchen Weg gehst du, <PlayerName><event:ActivateDecisionPopUp>?
+Welchen Weg gehst du, <PlayerName><event:ActivateDecisionPopUp>?$$$
+ $$$
+ $$$
+ $$$
+An AR experience by:$$$
+Jakob Krechtler - Art & Design$$$
+Fabian Marx - Programming$$$
+Adrian Pannier - Story$$$
+ $$$
+Thanks for playing!$$$
