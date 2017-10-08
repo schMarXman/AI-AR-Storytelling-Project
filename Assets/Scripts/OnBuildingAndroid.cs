@@ -10,11 +10,14 @@ class OnBuildingAndroid : IPreprocessBuild
 
     public void OnPreprocessBuild(BuildTarget target, string path)
     {
-        //if (target == BuildTarget.Android)
-        //{
-        //    Debug.Log("Loading dialogue strings for android!");
-        //    GameObject.Find("AndroidDialogueHolder").GetComponent<AndroidDialogueHolder>().Populate();
-        //}
+        if (target == BuildTarget.Android)
+        {
+            //EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());
+            //EditorSceneManager.LoadScene("dialoguestart");
+            Debug.Log("Loading dialogue strings for android!");
+            GameObject.Find("AndroidDialogueHolder").GetComponent<AndroidDialogueHolder>().Populate();
+            GameObject.Find("DialogueDispatch").GetComponent<DialogueDispatch>().DebugMode = false;
+        }
     }
 }
 #endif

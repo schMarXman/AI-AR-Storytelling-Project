@@ -11,6 +11,9 @@ public class SelectableInformationDatabase
         public string RelationshipStatus;
         public string Job;
         public string Hobby;
+        public string NegativeTrait;
+        public int Income;
+        public int Age;
     }
 
     private static string[] mMaleFirstNames =
@@ -77,6 +80,15 @@ public class SelectableInformationDatabase
         "Töpfern"
     };
 
+    private static string[] mNegativeTraits =
+    {
+        "Vorbestraft",
+        "Verschuldet",
+        "Aggressiv",
+        "Depressiv",
+        "Auf Bewährung"
+    };
+
 
     public static PersonData GetPerson(bool male)
     {
@@ -95,6 +107,9 @@ public class SelectableInformationDatabase
         person.Hobby = mHobby[Random.Range(0, mHobby.Length)];
         person.Job = mJob[Random.Range(0, mJob.Length)];
         person.RelationshipStatus = mRelationshipStatus[Random.Range(0, mRelationshipStatus.Length)];
+        person.NegativeTrait = mNegativeTraits[Random.Range(0, mNegativeTraits.Length)];
+        person.Income = Random.Range(200, 25000);
+        person.Age = Random.Range(20, 50);
 
         return person;
     }

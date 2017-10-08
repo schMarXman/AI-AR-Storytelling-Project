@@ -29,6 +29,18 @@ public class ARMarkerDetector : MonoBehaviour, ITrackableEventHandler
         }
 
         OnMarkerDetected.AddListener(() => GameEvent.EndEventById("WaitForMarker", true));
+        OnMarkerLost.AddListener(() => {
+            if (SelectableObject.CurrentlySelectedObject != null)
+            {
+                SelectableObject.CurrentlySelectedObject.gameObject.SetActive(true);
+            }
+        });
+        OnMarkerLost.AddListener(()=> {
+            if (SelectableObject.CurrentlySelectedObject != null)
+            {
+                SelectableObject.CurrentlySelectedObject.gameObject.SetActive(false);
+            }
+        });
     }
 
     public void OnTrackableStateChanged(

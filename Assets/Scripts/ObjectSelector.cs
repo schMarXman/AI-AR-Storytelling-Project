@@ -6,7 +6,7 @@ public class ObjectSelector : MonoBehaviour
 {
     public static ObjectSelector Instance;
 
-    private bool mEnabled = true;
+    public bool Enabled = true;
 
     public Camera AttachedCamera { get; private set; }
 
@@ -30,7 +30,7 @@ public class ObjectSelector : MonoBehaviour
 
     void Update()
     {
-        if (mEnabled)
+        if (Enabled)
         {
             if (Application.isMobilePlatform)
             {

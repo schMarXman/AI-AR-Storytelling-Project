@@ -10,7 +10,7 @@ public class ObjectAlphaInterpolator : MonoBehaviour
 
     public AnimationCurve Curve;
 
-    public bool Show;
+    public bool Show, LaunchOnStart;
 
     void Start()
     {
@@ -25,6 +25,11 @@ public class ObjectAlphaInterpolator : MonoBehaviour
                 c.a = 0;
                 renderer.material.color = c;
             }
+        }
+
+        if (LaunchOnStart)
+        {
+            Launch();
         }
     }
 

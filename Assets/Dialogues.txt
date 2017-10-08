@@ -7,7 +7,7 @@ Schauen wir mal, ob ich im Internet ein Bild von dir finde...$$$
 P R O C E S S I N G$$$
 Ich glaube das bist du.<event:ShowPicture>$$$
 Ich werde Xiri gennant, so tauften mich zumindest meine Entwickler.$$$
-Die Art meines Wesens wird als künstliche Inteligenz (KI) beschrieben.$$$
+Die Art meines Wesens wird als künstliche Inteligenz (KI) beschrieben.<event:TriggerPictureAnimation>$$$
 Mein Körper sind Platinen, statt Blut durchströmt mich Elektrizität,
 mein Gehirn wird modelliert aus einsen und nullen im stetigen Wandel.$$$
 Nach deinem Vorbild werde ich geschaffen, das Abbild eines Menschen.$$$

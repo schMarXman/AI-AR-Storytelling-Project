@@ -29,9 +29,12 @@ public class PersonInfoUI : MonoBehaviour
         mData = data;
         string text = "Vorname: " + mData.FirstName + Environment.NewLine
                       + "Nachname: " + mData.LastName + Environment.NewLine
+                      + "Alter: " + mData.Age + Environment.NewLine
                       + "Beziehung: " + mData.RelationshipStatus + Environment.NewLine
                       + "Job: " + mData.Job + Environment.NewLine
-                      + "Hobby: " + mData.Hobby;
+                      //+ "Hobby: " + mData.Hobby + Environment.NewLine
+                      //+ "Vermögen: " + mData.Income + " €";
+                      + "Merkmal: " + mData.NegativeTrait;
         SetText(text);
     }
 

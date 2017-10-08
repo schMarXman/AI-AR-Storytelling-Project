@@ -19,7 +19,16 @@ public class ScaleInterpolator : MonoBehaviour
     {
         if (DoOnEnable)
         {
+            LaunchAnimation();
+        }
+    }
+
+    public void LaunchAnimation()
+    {
+        if (gameObject.activeSelf)
+        {
             StartCoroutine(ScaleLerp());
+
         }
     }
 

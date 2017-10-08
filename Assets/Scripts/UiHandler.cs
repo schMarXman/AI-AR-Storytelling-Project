@@ -12,6 +12,7 @@ public class UiHandler : MonoBehaviour
     [SerializeField] private GameObject PlaceMarkerARAlertLabel;
     [SerializeField] private GameObject BackgroundImage;
     [SerializeField] private GameObject BackgroundFade;
+    [SerializeField] private Text PlayerNameText;
     [SerializeField] private InputField PlayerNameInputField;
     [SerializeField] private RawImage CameraPictureTaken;
 
@@ -37,12 +38,18 @@ public class UiHandler : MonoBehaviour
     public void AcceptPlayerName()
     {
         GameDirector.Instance.PlayerName = PlayerNameInputField.text;
+        PlayerNameText.text = GameDirector.Instance.PlayerName = PlayerNameInputField.text;
         PlayerNameInputPopUp.SetActive(false);
 
         CameraHandler.Instance.TakePicture();
         CameraHandler.Instance.StopCamera();
 
         GameEvent.EndEventById("EnterPlayerName");
+    }
+
+    public void SetPlayerNameActive(bool state)
+    {
+        PlayerNameText.gameObject.SetActive(state);
     }
 
     public void AcceptReadyPopUp()
@@ -90,4 +97,8 @@ public class UiHandler : MonoBehaviour
             ARSceneObjectHelper.Instance.TimeSlider.SetActive(state);
         }
     }
+
+    //public void SetPlayerName(string name)
+    //{
+    //}
 }
