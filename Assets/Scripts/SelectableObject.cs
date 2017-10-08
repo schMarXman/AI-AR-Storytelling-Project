@@ -12,6 +12,8 @@ public class SelectableObject : MonoBehaviour
 
     public PersonInfoUI ThisInfoObj;
 
+    public SelectableInformationDatabase.PersonData Person { get; private set; }
+
     //public void Select()
     //{
     //    if (CurrentlySelectedObject != this)
@@ -33,10 +35,13 @@ public class SelectableObject : MonoBehaviour
         {
             ThisInfoObj = Instantiate(InfoUiPrefab.gameObject).GetComponent<PersonInfoUI>();
             ThisInfoObj.Target = transform;
-            ThisInfoObj.SetPerson(SelectableInformationDatabase.GetPerson(IsMale));
+            Person = SelectableInformationDatabase.GetPerson(IsMale);
+            ThisInfoObj.SetPerson(Person);
         }
 
         CurrentlySelectedObject = this;
         ThisInfoObj.gameObject.SetActive(true);
+
+        GameEvent.EndEventById("WaitForPersonSelected", true);
     }
 }

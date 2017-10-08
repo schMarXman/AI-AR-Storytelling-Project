@@ -61,6 +61,7 @@ public class GameEvent : MonoBehaviour
         return null;
     }
 
+    [ContextMenu("Trigger event")]
     public void Trigger()
     {
         IsActive = true;
@@ -73,6 +74,7 @@ public class GameEvent : MonoBehaviour
         }
     }
 
+    [ContextMenu("End event")]
     public void End(bool onlyEndIfActive = false)
     {
         if (onlyEndIfActive && !IsActive)
@@ -86,6 +88,22 @@ public class GameEvent : MonoBehaviour
 
     private void ContinueDialogue()
     {
-        DialogueDispatch.Instance.ContinueDialogueAfterEvent();
+        if (DialogueDispatch.Instance != null)
+        {
+            DialogueDispatch.Instance.ContinueDialogueAfterEvent();
+
+        }
+    }
+
+    public void WaitTimeEvent(float time)
+    {
+        StartCoroutine(WaitTime(time));
+    }
+
+    IEnumerator WaitTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        End();
     }
 }

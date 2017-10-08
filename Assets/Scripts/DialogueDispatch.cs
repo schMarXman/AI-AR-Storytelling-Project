@@ -21,6 +21,8 @@ public class DialogueDispatch : MonoBehaviour
 
     public string PlayerNameString;
 
+    public string SelectedPersonString;
+
     public char NewLineReplacementChar;
 
     public float DisplayTime, TimeBetweenStatements;
@@ -130,6 +132,7 @@ public class DialogueDispatch : MonoBehaviour
             var statement = mStatements[i];
 
             statement = ReplacePlayerName(statement);
+            statement = ReplaceSelectedPersonString(statement);
 
             var eventIdMatch = StatementHasEvent(statement);
 
@@ -179,6 +182,19 @@ public class DialogueDispatch : MonoBehaviour
         if (statement.Contains(PlayerNameString) && GameDirector.Instance.PlayerName != String.Empty)
         {
             return statement.Replace(PlayerNameString, GameDirector.Instance.PlayerName);
+        }
+
+        return statement;
+    }
+
+    private string ReplaceSelectedPersonString(string statement)
+    {
+        if (statement.Contains(SelectedPersonString) && SelectableObject.CurrentlySelectedObject != null)
+        {
+            string replacement = SelectableObject.CurrentlySelectedObject.IsMale ? "Herr " : "Frau ";
+            replacement += SelectableObject.CurrentlySelectedObject.Person.LastName;
+
+            return statement.Replace(SelectedPersonString, replacement);
         }
 
         return statement;

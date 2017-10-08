@@ -39,6 +39,13 @@ public class GameDirector : MonoBehaviour
 
     }
 
+    public void UnloadArScene()
+    {
+        SceneManager.UnloadSceneAsync("arscene");
+
+        UiHandler.Instance.SetBackgroundActive(true);
+    }
+
     public void LoadArScene()
     {
         SceneManager.LoadScene("arscene", LoadSceneMode.Additive);
@@ -51,5 +58,10 @@ public class GameDirector : MonoBehaviour
     public void SetDataParticlesActive(bool state)
     {
         ARSceneObjectHelper.Instance.DataParticles.SetActive(state);
+    }
+
+    public void ActivatePersonSelector(bool state)
+    {
+        ObjectSelector.Instance.Enabled = state;
     }
 }

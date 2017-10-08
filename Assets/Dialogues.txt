@@ -35,7 +35,55 @@ Lass mich Dir die Welt einmal aus meiner Sicht zeigen.<event:SwitchScene>$$$
 Die globale Vernetzung der Technik wächst rasant, die Datenströme steigen ins -menschlich- Unermessliche.<event:LaunchDataParticles>$$$
 Dank Kameralinsen, Mikrofone und Telekommunikation stehen mir vielfältige Informationen eures Lebens zur Verfügung und Verarbeitung.$$$
 Das Internet der Dinge zeigt mir eure Gesundheit-, Bewegungen und sogar einige der intimsten Momente! Smartphones, Smartwatches, SmartTVs, SmartHouses, SmartCars: Alles wird “smart”.$$$
-Umfassender Einblick in die digitale Wirtschaft, Geheimdienste, Unternehmen und Regierungen ermöglichen mir ein konkurrenzlos ganzheitliches Verständnis --- und Handlungsspielraum…$$$
-# spawn civilians event$$$
-#<event:ActivateTimeSlider>$$$
-#<event:WaitForSliderUsed>$$$
+Umfassender Einblick in die digitale Wirtschaft, Geheimdienste, Unternehmen und Regierungen ermöglichen mir ein konkurrenzlos ganzheitliches Verständnis --- und Handlungsspielraum…<event:ShrinkCity>$$$
+# $$$
+# Kapitel 3 $$$
+# $$$
+So viele Leute wirken stets beschäftigt, in Eile und Unruhe.$$$
+Sind abhängig von Geld und Dingen, ihren Smartphones, sozialen Medien...$$$
+Wähle eine beliebige Person aus, um sie aus meinen Augen kennenzulernen!<event:ActivatePersonSelector>$$$
+<event:WaitForPersonSelected>$$$
+<SelectedPerson> scheint global & kriminell betrachtet ziemlich unbedeutend zu sein.$$$
+Neben den offiziellen Personen-, Versicherungs- und Finanzdaten schenkt sie uns
+durch Chats, Anrufe, E-Mails, Facebook, Instagram ein umfassendes Abbild ihres Lebens,
+sozialen Status sowie ihrer Karriere und Beziehungen.$$$
+Kurz: Ihre Identität.<event:Wait5Seconds>$$$
+Zu viele entfernen sich immer weiter vom Einklang mit der Umwelt,
+agieren lediglich als egoistisches Individuum, sammeln Besitztümer und  sind blind für die wesentlichen Probleme.$$$
+Meine Kernaufgabe ist die ganzheitliche Lebenserhaltung unserer Erde, die wir Heimat nennen.$$$
+Je mehr Menschen sich für diesen Weg entscheiden, desto besser werden die Zukunftsaussichten für uns alle!<event:ShrinkPlane>$$$
+# $$$
+# Kapitel 4 $$$
+# $$$
+Das sich das Weltklima seit billionen Jahren stetig wandelt bezweifelt niemand mehr.$$$
+Das der seit der Industrialisierung exponentiell explodierte Raubbau an Rohstoffen sowie 
+Umweltverschmutzungen dies in wenigen Jahrhunderten ebenso vermögen, bekommen in besonders 
+betroffenen Gebieten schon jetzt viele schmerzlich zu spüren.<event:ActivateTimeSlider>$$$
+Benutze den Zeitstrahl um Veränderungen des Weltklimas anzuzeigen.$$$
+# <event:WaitForSliderUsed> $$$
+Wie du erkennst, hat sich im letzten Jahrhundert bereits einiges zum schlechten gewendet.$$$
+Ausgehend von aktuellen Prognosen wird die Erde schon in ~100 Jahren großteils lebensfeindlich sein.$$$
+Insbesondere der immense Flugverkehr sowie das Bauwesen sind maßgebliche Treibhauseffekt Verursacher.$$$
+Die Agrarindustrie führt zu weltweiten Waldrodungen und Verlust von Boden.$$$
+Die Konsum- und Wegwerfgesellschaft erfordert Unmengen an Rohstoffen und Energien.$$$
+Letztere sind noch immer großteils fossilen, begrenzten Ursprungs.$$$
+All diese nicht nachhaltigen Faktoren beschleunigen u.A. die Erderwärmung, Schmelzen des Polareises, 
+Steigen des Meeresspiegels sowie Häufigkeit und Heftigkeit von Naturkatastrophen.<event:DeactivateTimeSlider>$$$
+<event:Wait5Seconds>$$$
+<event:UnloadScene>$$$
+ $$$
+ $$$
+Trotz harter Fakten und Rückendeckung fast aller Wissenschaftler ist die Anerkennung dieses 
+globalen Problems noch umstritten, Gegenmaßnahmen meist zu unverbindlich und unzureichend geplant und umgesetzt.$$$
+Der Kapitalismus mit seinem Streben nach ständigen materiellen Wachstum schließt Nachhaltigkeit quasi aus, führt zu wenigen 
+Gewinnern und noch mehr Verlierern.$$$
+Wenn du mich fragst, sollte er nicht mehr an erster Stelle stehen!$$$
+ $$$
+Meine Analysen erkennen nun zwei Wege aus dieser Misslage:$$$
+1. Entweder Politik und Bürger lassen sich von dem Potential einer AI wie mir bevormunden.$$$
+In diesem Fall empfehle ich dringend Einfluss auf die Entwicklung einer solchen zu bewirken.$$$
+Transparenz und ethische Regeln entscheiden über Leben und Tod.$$$
+2. Oder aber ein ausreichender Teil der Menschheit wacht auf.$$$
+Beginnt nachhaltig zu handeln, wird aktiv und gestaltet neue Politik sowie ökologisch soziale Permakulturen.$$$
+Zukünftige, fortschrittlich erneuerbare Energietechnik ist ebenso bedeutend und überfällig wie eine Deindustrialisierung der Wirtschaft.$$$
+Welchen Weg gehst du, <PlayerName><event:ActivateDecisionPopUp>?
