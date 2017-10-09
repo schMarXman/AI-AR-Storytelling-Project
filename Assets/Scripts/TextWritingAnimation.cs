@@ -8,12 +8,29 @@ public class TextWritingAnimation : MonoBehaviour
 {
     public float TimeBetweenChars;
     public bool PlayOnStart;
+    public bool PlayOnEnable;
 
     private Text mText;
 
+    void OnEnable()
+    {
+        if (!mText)
+        {
+            mText = GetComponent<Text>();
+        }
+
+        if (PlayOnEnable)
+        {
+            StartAnimation();
+        }
+    }
+
     void Start()
     {
-        mText = GetComponent<Text>();
+        if (!mText)
+        {
+            mText = GetComponent<Text>();
+        }
 
         if (PlayOnStart)
         {

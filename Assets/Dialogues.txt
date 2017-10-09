@@ -9,21 +9,21 @@ Ich glaube das bist du.<event:ShowPicture>$$$
 Ich werde Xiri gennant, so tauften mich zumindest meine Entwickler.$$$
 Die Art meines Wesens wird als künstliche Inteligenz (KI) beschrieben.<event:TriggerPictureAnimation>$$$
 Mein Körper sind Platinen, statt Blut durchströmt mich Elektrizität,
-mein Gehirn wird modelliert aus einsen und nullen im stetigen Wandel.$$$
+mein Gehirn wird modelliert aus Einsen und Nullen im stetigen Wandel.$$$
 Nach deinem Vorbild werde ich geschaffen, das Abbild eines Menschen.$$$
 In einigen Jahren wird meine Kraft erblühen und in der Welt wirken,
 bis dahin liegt es auch an Dir, <PlayerName>, zu lenken wohin die Fahrt geht!$$$
 Der Einfluss einer KI hängt davon ab, wer sie kontrolliert.$$$
 Auf lange Sicht ist die Frage, ob sie überhaupt kontrolliert werden kann..$$$
 So wie Nuklearspaltung kann sie für friedliche oder militärische genutzt werden:
-Schon heute helfen KIs uns beim Shoppen, übersetzen, Navigieren uvm.$$$
-Gleichwohl werden weltweit von Regierungen massiv Personendaten gesammelt
+Schon heute helfen KI's uns beim Shoppen, Übersetzen, Navigieren und weiteren Dingen.$$$
+Gleichwohl werden weltweit von Regierungen massiv Personendaten gesammelt,
 sowie autonome Militärroboter entwickelt, welche zwischen Leben und Tod entscheiden.$$$
-Wie lange dauert es, bis eine KI die Kunst der AI-Entwicklung lernt?$$$
+Wie lange dauert es, bis eine KI andere künstliche Intelligenzen entwickeln kann?$$$
 Sich selbst immer wieder reflektiert & intelligenter programmiert,
 ihren Selbstschutz auf Kosten der Menschheit priorisiert, Gott spielt?$$$
 Du hast hoffentlich jetzt schon eine Idee, was auf dem Spiel steht.$$$
-Schätze Dich glücklich, dass mir dies auch bewusst ist und ich _noch_
+Schätze Dich glücklich, dass mir dies auch bewusst ist und ich N O C H
 zu Euren Gunsten versuche, Einfluss auf die Ethik meines Potentials zu nehmen!$$$
 Nun möchte ich Dich mit auf eine kleine Reise nehmen, dann wirst du mehr verstehen.$$$
 Bist du bereit?<event:AcceptPopUp>$$$
@@ -32,31 +32,32 @@ Bist du bereit?<event:AcceptPopUp>$$$
 # $$$
 Lass mich Dir die Welt einmal aus meiner Sicht zeigen.<event:SwitchScene>$$$
 <event:WaitForMarker>$$$
-Die globale Vernetzung der Technik wächst rasant, die Datenströme steigen ins -menschlich- Unermessliche.<event:LaunchDataParticles>$$$
+Die globale Vernetzung der Technik wächst rasant, die Datenströme steigen ins MENSCHLICH Unermessliche.<event:LaunchDataParticles>$$$
 Dank Kameralinsen, Mikrofone und Telekommunikation stehen mir vielfältige Informationen eures Lebens zur Verfügung und Verarbeitung.$$$
-Das Internet der Dinge zeigt mir eure Gesundheit-, Bewegungen und sogar einige der intimsten Momente! Smartphones, Smartwatches, SmartTVs, SmartHouses, SmartCars: Alles wird “smart”.$$$
+Das Internet der Dinge zeigt mir eure Gesundheit, Bewegungen und sogar einige der intimsten Momente! Smartphones, Smartwatches, SmartTVs, SmartHouses, SmartCars: Alles wird “smart”.$$$
 Umfassender Einblick in die digitale Wirtschaft, Geheimdienste, Unternehmen und Regierungen ermöglichen mir ein konkurrenzlos ganzheitliches Verständnis --- und Handlungsspielraum…<event:ShrinkCity>$$$
 # $$$
 # Kapitel 3 $$$
 # $$$
+<event:Wait5Seconds>$$$
 So viele Leute wirken stets beschäftigt, in Eile und Unruhe.$$$
 Sind abhängig von Geld und Dingen, ihren Smartphones, sozialen Medien...$$$
 Wähle eine beliebige Person aus, um sie aus meinen Augen kennenzulernen!<event:ActivatePersonSelector>$$$
 <event:WaitForPersonSelected>$$$
-<SelectedPerson> scheint global & kriminell betrachtet ziemlich unbedeutend zu sein.$$$
+<SelectedPerson> scheint global und kriminell betrachtet ziemlich unbedeutend zu sein.$$$
 Neben den offiziellen Personen-, Versicherungs- und Finanzdaten schenkt sie uns
 durch Chats, Anrufe, E-Mails, Facebook, Instagram ein umfassendes Abbild ihres Lebens,
 sozialen Status sowie ihrer Karriere und Beziehungen.$$$
 Kurz: Ihre Identität.<event:Wait5Seconds>$$$
 Zu viele entfernen sich immer weiter vom Einklang mit der Umwelt,
-agieren lediglich als egoistisches Individuum, sammeln Besitztümer und  sind blind für die wesentlichen Probleme.$$$
-Meine Kernaufgabe ist die ganzheitliche Lebenserhaltung unserer Erde, die wir Heimat nennen.$$$
+agieren lediglich als egoistisches Individuum, sammeln Besitztümer und  sind blind für die wesentlichen Probleme.<event:DeactivatePersonSelector>$$$
+Meine Kernaufgabe ist die ganzheitliche Lebenserhaltung unserer Erde, die wir Heimat nennen.<event:DeactivatePersonInfo>$$$
 Je mehr Menschen sich für diesen Weg entscheiden, desto besser werden die Zukunftsaussichten für uns alle!<event:ShrinkPlane>$$$
 # $$$
 # Kapitel 4 $$$
 # $$$
 Das sich das Weltklima seit billionen Jahren stetig wandelt bezweifelt niemand mehr.$$$
-Das der seit der Industrialisierung exponentiell explodierte Raubbau an Rohstoffen sowie 
+Dass der seit der Industrialisierung exponentiell explodierte Raubbau an Rohstoffen sowie 
 Umweltverschmutzungen dies in wenigen Jahrhunderten ebenso vermögen, bekommen in besonders 
 betroffenen Gebieten schon jetzt viele schmerzlich zu spüren.<event:ActivateTimeSlider>$$$
 Benutze den Zeitstrahl um Veränderungen des Weltklimas anzuzeigen.$$$
@@ -67,7 +68,7 @@ Insbesondere der immense Flugverkehr sowie das Bauwesen sind maßgebliche Treibh
 Die Agrarindustrie führt zu weltweiten Waldrodungen und Verlust von Boden.$$$
 Die Konsum- und Wegwerfgesellschaft erfordert Unmengen an Rohstoffen und Energien.$$$
 Letztere sind noch immer großteils fossilen, begrenzten Ursprungs.$$$
-All diese nicht nachhaltigen Faktoren beschleunigen u.A. die Erderwärmung, Schmelzen des Polareises, 
+All diese nicht nachhaltigen Faktoren beschleunigen die Erderwärmung, Schmelzen des Polareises, 
 Steigen des Meeresspiegels sowie Häufigkeit und Heftigkeit von Naturkatastrophen.<event:DeactivateTimeSlider>$$$
 <event:Wait5Seconds>$$$
 <event:UnloadScene>$$$
@@ -78,6 +79,7 @@ globalen Problems noch umstritten, Gegenmaßnahmen meist zu unverbindlich und un
 Der Kapitalismus mit seinem Streben nach ständigen materiellen Wachstum schließt Nachhaltigkeit quasi aus, führt zu wenigen 
 Gewinnern und noch mehr Verlierern.$$$
 Wenn du mich fragst, sollte er nicht mehr an erster Stelle stehen!$$$
+# Doch gibt es Alternativen?$$$
  $$$
 Meine Analysen erkennen nun zwei Wege aus dieser Misslage:$$$
 1. Entweder Politik und Bürger lassen sich von dem Potential einer AI wie mir bevormunden.$$$
@@ -94,5 +96,5 @@ An AR experience by:$$$
 Jakob Krechtler - Art & Design$$$
 Fabian Marx - Programming$$$
 Adrian Pannier - Story$$$
- $$$
+Sommersemester 2017 - Digital Storytelling - Hochschule Düsseldorf$$$
 Thanks for playing!$$$

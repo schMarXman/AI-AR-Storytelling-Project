@@ -103,6 +103,14 @@ public class UiHandler : MonoBehaviour
         }
     }
 
+    public void SetPersonInfoActive(bool state)
+    {
+        if (SelectableObject.CurrentlySelectedObject != null)
+        {
+            SelectableObject.CurrentlySelectedObject.ThisInfoObj.gameObject.SetActive(state);
+        }
+    }
+
     //public void SetPlayerName(string name)
     //{
     //}
